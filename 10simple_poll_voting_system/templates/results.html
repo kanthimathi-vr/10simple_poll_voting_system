@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Poll Results{% endblock %}
+{% block content %}
+<h1>Poll Results</h1>
+
+<ul class="results-list">
+    {% for option, count in votes.items() %}
+    <li {% if option == user_vote %}class="highlight"{% endif %}>
+        {{ option }}: {{ count }} vote{{ 's' if count != 1 else '' }}
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('poll') }}" class="back-link">Back to Poll</a>
+{% endblock %}
