@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Vote in Poll{% endblock %}
+{% block content %}
+<h1>{{ question }}</h1>
+
+<form method="POST" novalidate>
+    {% for option in options %}
+    <label class="option">
+        <input type="radio" name="option" value="{{ option }}" required />
+        {{ option }}
+    </label>
+    {% endfor %}
+    <button type="submit">Submit Vote</button>
+</form>
+{% endblock %}
